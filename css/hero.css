@@ -14,7 +14,7 @@
   right: calc(var(--offset-container) + 7px);
   bottom: -43px;
   width: calc(100vw / (320 / 261));
-  height: calc(100 vw / (320 / 230));
+  height: calc(100vw / (320 / 230));
   max-width: 382px;
   max-height: 337px;
   background-image: url("../img/cheese-slice-of-pizza.png");

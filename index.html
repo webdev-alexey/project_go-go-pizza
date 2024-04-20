@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>GO GO Pizza - Заказать лучшую пиццу в городе</title>
     <link rel="stylesheet" href="css/index.css" />
+    <script src="js/script.js" type="module"></script>
   </head>
   <body>
     <header class="header">
@@ -202,7 +203,7 @@
 
           <ul class="pizza__list">
             <li class="pizza__item">
-              <article class="card">
+              <article class="pizza__card card">
                 <img
                   class="card__image"
                   src="img/products/1.png"
@@ -449,26 +450,5 @@
         </ul>
       </div>
     </footer>
-
-    <script>
-      const toppingsButton = document.querySelector(".toppings__button");
-      const toppingsList = document.querySelector(".toppings__list");
-
-      toppingsButton.addEventListener("click", () => {
-        if (!toppingsList.classList.contains("toppings__list_show")) {
-          toppingsList.classList.add("toppings__list_show");
-          toppingsButton.classList.add("toppings__button_active");
-
-          toppingsList.style.maxHeight = toppingsList.scrollHeight + "px";
-        } else {
-          toppingsButton.classList.remove("toppings__button_active");
-          toppingsList.style.maxHeight = null;
-
-          setTimeout(() => {
-            toppingsList.classList.remove("toppings__list_show");
-          }, 300);
-        }
-      });
-    </script>
   </body>
 </html>
