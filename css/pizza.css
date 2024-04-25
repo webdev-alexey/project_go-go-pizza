@@ -61,6 +61,10 @@
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
     gap: 16px;
   }
+
+  .pizza__reset-toppings {
+    font-size: 20px;
+  }
 }
 
 @media (width >= 1140px) {

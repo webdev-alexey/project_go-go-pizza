@@ -12,7 +12,6 @@
 .modal__main {
   position: relative;
   cursor: default;
-  padding: 16px;
   background-color: var(--white);
   border-radius: 32px;
   margin: auto;

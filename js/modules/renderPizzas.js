@@ -1,4 +1,5 @@
 import { getData } from "./getData.js";
+import { modalController } from "./modalController.js";
 
 const btnReset = document.createElement("button");
 btnReset.classList.add("pizza__reset-toppings");
@@ -40,7 +41,7 @@ const createCard = (data) => {
 
 export const renderPizzas = async (toppings) => {
   const pizzas = await getData(
-    `https://complex-beautiful-kiwi.glitch.me/api/products${
+    `https://luminous-west-sunflower.glitch.me/api/products${
       toppings ? `?toppings=${toppings}` : ""
     }`
   );
@@ -61,6 +62,12 @@ export const renderPizzas = async (toppings) => {
     });
 
     pizzaList.append(...items);
+
+    modalController({
+      modal: ".modal-pizza",
+      btnOpen: ".card__button",
+      btnClose: ".modal__close",
+    });
   } else {
     pizzaTitle.textContent = "Такой пиццы у нас нет :(";
     pizzaTitle.after(btnReset);
