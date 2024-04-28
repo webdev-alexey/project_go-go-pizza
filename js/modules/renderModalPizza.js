@@ -1,3 +1,4 @@
+import { cartControl } from "./cartControl.js";
 import {
   changefirstUpperCase,
   createLabel,
@@ -65,7 +66,6 @@ export const renderModalPizza = ({ id, images, name, price, toppings }) => {
     "thick"
   );
   const thickLabel = createLabel("modal-pizza__label", "thick", "Пышное тесто");
-  thickInput.checked = true;
 
   const thinInput = createRadioInput(
     "modal-pizza__radio",
@@ -73,6 +73,7 @@ export const renderModalPizza = ({ id, images, name, price, toppings }) => {
     "crust",
     "thin"
   );
+  thinInput.checked = true;
   const thinLabel = createLabel("modal-pizza__label", "thin", "Тонкое тесто");
 
   fieldsetCrust.append(thickInput, thickLabel, thinInput, thinLabel);
@@ -140,4 +141,34 @@ export const renderModalPizza = ({ id, images, name, price, toppings }) => {
   );
 
   updatePrice();
+
+  let timerId = -1;
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+
+    const product = {
+      cartId: crypto.randomUUID(),
+      id,
+      crust: formData.get("crust"),
+      size: formData.get("size"),
+    };
+
+    cartControl.addCart(product);
+
+    addToCartBtn.disabled = true;
+    addToCartBtn.textContent = "Добавлено";
+
+    timerId = setTimeout(() => {
+      addToCartBtn.disabled = false;
+      addToCartBtn.textContent = "В корзину";
+    }, 3000);
+  });
+
+  form.addEventListener("change", () => {
+    clearTimeout(timerId);
+    addToCartBtn.disabled = false;
+    addToCartBtn.textContent = "В корзину";
+  });
 };

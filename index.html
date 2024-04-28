@@ -4,6 +4,28 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>GO GO Pizza - Заказать лучшую пиццу в городе</title>
+
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="img/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="img/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="img/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="img/favicon/site.webmanifest" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
+
     <link rel="stylesheet" href="css/index.css" />
     <script src="js/script.js" type="module"></script>
   </head>
@@ -38,7 +60,7 @@
           <div class="hero__content">
             <h1 class="hero__title">Лучшая пицца в&nbsp;городе</h1>
             <p class="hero__tagline">Доставим менее чем за&nbsp;час</p>
-            <button class="hero__order">Заказать</button>
+            <a class="hero__order" href="#pizza-list">Заказать</a>
           </div>
         </div>
       </section>
@@ -67,7 +89,7 @@
         </div>
       </section>
 
-      <section class="pizza">
+      <section class="pizza" id="pizza-list">
         <div class="container">
           <h2 class="pizza__title">Пицца</h2>
 
@@ -103,6 +125,120 @@
 
     <div class="modal modal-pizza">
       <div class="modal__main modal-pizza__main"></div>
+    </div>
+
+    <div class="modal modal-cart">
+      <div class="modal__main modal-cart__main">
+        <div class="modal-cart__block">
+          <h2 class="modal-cart__title">Корзина</h2>
+
+          <ul class="modal-cart__list">
+            <li class="modal-cart__item"></li>
+          </ul>
+
+          <div class="modal-cart__summary">
+            <p class="modal-cart__price">1480 ₽</p>
+            <button class="modal-cart__btn modal-cart__continue" type="button">
+              Продолжить
+            </button>
+          </div>
+        </div>
+        <div class="modal-cart__delivery">
+          <h2 class="modal-cart__title">Доставка</h2>
+
+          <form class="modal-cart__form" id="cart">
+            <fieldset class="modal-cart__fieldset modal-cart__fieldset_text">
+              <input
+                class="modal-cart__input"
+                type="text"
+                placeholder="Имя"
+                name="name"
+              />
+              <input
+                class="modal-cart__input"
+                type="text"
+                placeholder="Телефон"
+                name="phone"
+              />
+              <input
+                class="modal-cart__input modal-cart__input_address"
+                type="text"
+                placeholder="Адрес"
+                name="address"
+              />
+            </fieldset>
+
+            <fieldset class="modal-cart__fieldset">
+              <legend class="modal-cart__legend">Оплата:</legend>
+
+              <div class="modal-cart__payment">
+                <label class="modal-cart__payment-label">
+                  <input
+                    class="modal-cart__input-radio"
+                    type="radio"
+                    name="paymentMethod"
+                    value="cash"
+                    checked
+                  />
+                  Наличными
+                </label>
+
+                <label class="modal-cart__payment-label">
+                  <input
+                    class="modal-cart__input-radio"
+                    type="radio"
+                    name="paymentMethod"
+                    value="credit card"
+                  />
+                  Картой
+                </label>
+              </div>
+            </fieldset>
+          </form>
+          <div class="modal-cart__summary">
+            <p class="modal-cart__price">1480 ₽</p>
+            <div class="modal-cart__btns">
+              <button class="modal-cart__btn modal-cart__prev" type="button">
+                Назад
+              </button>
+              <button
+                class="modal-cart__btn modal-cart__send-order"
+                type="submit"
+                form="cart"
+              >
+                Заказать
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <button class="modal__close">
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect
+              x="14.8333"
+              y="4"
+              width="0.851136"
+              height="15.3204"
+              transform="rotate(45 14.8333 4)"
+              fill="#C1AB91"
+            />
+            <rect
+              x="4"
+              y="4.60181"
+              width="0.851136"
+              height="15.3204"
+              transform="rotate(-45 4 4.60181)"
+              fill="#C1AB91"
+            />
+          </svg>
+        </button>
+      </div>
     </div>
   </body>
 </html>

@@ -1,0 +1,21 @@
+.footer {
+  border-top: 1px solid var(--beige);
+  padding-bottom: 40px;
+
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  line-height: 1.4;
+  color: var(--beige);
+}
+
+.footer__logo {
+  padding-top: 64px;
+  padding-bottom: 64px;
+}
+
+.footer__copyright {
+  font-size: 20px;
+  margin-bottom: 16px;
+}
